@@ -51,20 +51,20 @@ const templateHTML = `
 export default function(dom, data) {
   let el = dom.querySelector('dt-appendix')
   if (el) {
-    let userHTML = el.innerHTML;
-    el.innerHTML = templateHTML;
     let newHTML = "";
 
     // If we have some footnotes on the page, render a container for the footnote list.
-    if (dom.querySelector("dt-fn")) {
+    if (dom.querySelector("dt-fn") && !dom.querySelector("dt-fn-list")) {
       newHTML = newHTML + `<h3>Footnotes</h3><dt-fn-list></dt-fn-list>`;
     }
 
     // If we have any citations on the page, render a container for the bibliography.
-    if (dom.querySelector("dt-cite")) {
+    if (dom.querySelector("dt-cite") && !dom.querySelector("dt-bibliography")) {
       newHTML = newHTML + `<h3>References</h3><dt-bibliography></dt-bibliography>`;
     }
 
+    let userHTML = el.innerHTML;
+    el.innerHTML = templateHTML;
     let div = el.querySelector("div.l-body")
     div.innerHTML = userHTML + newHTML;
   }
