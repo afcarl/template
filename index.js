@@ -76,6 +76,30 @@ function distillify(dom, data) {
   footer(dom, data);
 }
 
+let components = {
+  html: html,
+  styles: styles,
+  frontMatter: frontMatter,
+  bibliography: bibliography,
+  expandData: expandData,
+  meta: meta,
+  banner: banner,
+  byline: byline,
+  appendix: appendix,
+  appendixDistill: appendixDistill,
+  citation: citation,
+  footnote: footnote,
+  DTMath: DTMath,
+  markdown: markdown,
+  code: code,
+  typeset: typeset,
+  hoverBox: hoverBox,
+  generateCrossref: generateCrossref,
+  header: header,
+  footer: footer,
+};
+
 export {render as render};
 export {distillify as distillify};
 export {generateCrossref as generateCrossref};
+export {components as components};
