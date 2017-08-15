@@ -40,7 +40,7 @@ function renderOnLoad(dom, data) {
 
 // If we are in a browser, render automatically...
 var browser = new Function("try { return this === window; }catch(e){ return false; }");
-if (browser) {
+if (browser()) {
   try {
     var data = {};
     renderImmediately(window.document);
